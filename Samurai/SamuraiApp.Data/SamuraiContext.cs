@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SamuraiApp.Domain;
+using System;
 
 namespace SamuraiApp.Data
 {
@@ -10,8 +11,9 @@ namespace SamuraiApp.Data
         public DbSet<Clan> Clans { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        { 
             string connectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = SamuraiAppData";
+            Console.WriteLine($"Configuring database\nConnection string: {connectionString}");
 
             optionsBuilder.UseSqlServer(connectionString);
         }
