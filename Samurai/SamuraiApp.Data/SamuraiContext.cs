@@ -25,10 +25,10 @@ namespace SamuraiApp.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
             string connectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = SamuraiAppData";
-            Console.WriteLine($"Configuring database\nConnection string: {connectionString}");
 
             optionsBuilder
                 .UseLoggerFactory(ConsoleLoggerFactory)
+                .EnableSensitiveDataLogging(true)
                 .UseSqlServer(connectionString);
         }
 
